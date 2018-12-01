@@ -1,0 +1,230 @@
+:root {
+  --myBorderColor: brown;
+  --myBackgroundColor: brown;
+  --myColor: brown;
+}
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+::placeholder {
+    font-family: Museo-Sans-Cyrl;
+}
+body {
+    width: 100%;
+    font-family: Museo-Sans-Cyrl;
+}
+
+/* Кнопки и формы */
+.button {
+    font-family: Museo-Sans-Cyrl;
+    font-weight: 600;
+    font-size: 16px;
+    color: grey;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    padding: 10px;
+    box-shadow: 0 0 1px 1px lightgrey;
+    border-radius: 20px;
+    border: none;
+}
+.button:active {
+    box-shadow: inset 0 2px 2px lightgrey;
+}
+
+#game-settings .button {
+    margin-bottom: 10px;
+}
+
+.input-name {
+    width: 200px;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 1px 1px lightgrey;
+    border: none;
+    margin-bottom: 15px;
+}
+
+.input-name:focus {
+    border: 1px dashed gold;
+}
+
+.input-wrap-first-player,
+.input-wrap-second-player {
+    position: relative;
+}
+.input-wrap-first-player::after {
+    content: '❌';
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateY(70%);
+    opacity: .5;
+}
+.input-wrap-second-player::after {
+    content: '⭕';
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateY(70%);
+    opacity: .5;
+}
+
+.game-settings__cells-select {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    width: 80%;
+    cursor: pointer;
+}
+
+.game-settings__options {
+    height: 0px;
+}
+
+.game-settings__against-computer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    width: 80%;
+}
+
+.game-settings__against-computer_active {
+    background-color: gold;
+}
+
+.game-settings__option {
+    box-shadow: 0 0 1px 1px lightgrey;
+    padding: 1px 0;
+    border-radius: 20px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.game-settings__option:active {
+    box-shadow: inset 0 1px 1px lightgrey;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    padding: 20px 0;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: #fff;
+    border-radius: 20px;
+    animation: floating-border 10s infinite ease-in-out;
+}
+
+.score-display {
+    width: 300px;
+    min-width: 150px;
+    text-align: center;
+    border: 2px solid white;
+}
+
+.score-display__row:first-child {
+    font-size: 30px;
+    font-weight: 800;
+    color: grey;
+}
+.score-display__row:last-child {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.score-display__cell {
+    width: 50px;
+    height: 20px;
+    border: 1px solid grey;
+    padding: 5px;
+    vertical-align: middle;
+}
+
+
+#game-settings {
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    animation: floating-border 10s infinite ease-in-out;
+    visibility: hidden;
+}
+
+@keyframes floating-border {
+    from {box-shadow: 0 0 40px 1px #2B2545, inset 1px 1px 5px grey;}
+    10% {box-shadow: 0 0 40px 1px #F53E0C, inset 1px 1px 5px grey;}
+    20% {box-shadow: 0 0 40px 1px #F26E0C, inset 1px 1px 5px grey;}
+    30% {box-shadow: 0 0 40px 1px #F2E70C, inset 1px 1px 5px grey;}
+    40% {box-shadow: 0 0 40px 1px #0CF266, inset 1px 1px 5px grey;}
+    50% {box-shadow: 0 0 40px 1px #4086F5, inset 1px 1px 5px grey;}
+    60% {box-shadow: 0 0 40px 1px #F58A40, inset 1px 1px 5px grey;}
+    70% {box-shadow: 0 0 40px 1px #FF888C, inset 1px 1px 5px grey;}
+    80% {box-shadow: 0 0 40px 1px #F2BE4D, inset 1px 1px 5px grey;}
+    90% {box-shadow: 0 0 40px 1px #9F88FF, inset 1px 1px 5px grey;}
+    to {box-shadow: 0 0 40px 1px #2B2545, inset 1px 1px 5px grey;}
+}
+
+.game-settings__rules-info {
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+.game-settings__options {
+    width: 200px;
+    text-align: center;
+    visibility: hidden;
+}
+
+/* Игровое поле */
+.main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#game-board__body tr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    border: 1px solid grey;
+}
+
+.cell::after {
+    content: attr(data-point);
+    display: flex;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+}
